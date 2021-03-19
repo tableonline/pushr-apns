@@ -3,9 +3,9 @@ module Pushr
   module Daemon
     module Apnsp8Http2
       TOKEN_TTL = 30 * 60
-      attr_reader :configuration
-      attr_accessor :cached_token, :cached_token_at
       class Token
+        attr_reader :configuration
+        attr_accessor :cached_token, :cached_token_at
         def initialize(configuration)
           @configuration = configuration
           @cached_token = nil

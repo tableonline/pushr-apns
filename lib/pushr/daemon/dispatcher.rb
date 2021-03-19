@@ -25,7 +25,7 @@ module Pushr
       end
 
       def get_dispatcher
-        DISPATCHERS[self.dispatcher_version] || raise_not_implemented_error
+        DISPATCHERS[self.dispatcher_version.to_sym] || raise_not_implemented_error
       end
     end
   end
