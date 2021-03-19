@@ -17,7 +17,7 @@ module Pushr
     validates :apn_key, :apn_key_id, :bundle_id, :team_id, presence: true, if: :apnsp8_http2?
 
     def name
-      :apns
+      self.version || :apns
     end
 
     def certificate=(value)
