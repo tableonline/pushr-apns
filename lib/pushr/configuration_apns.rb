@@ -25,7 +25,7 @@ module Pushr
         @certificate = value
       else
         # assume it's the path to the certificate and try to read it:
-        @certificate = read_file(value) if value 
+        @certificate = read_file(value) if !value.blank? && apns_tcp? 
       end
     end
 
@@ -34,7 +34,7 @@ module Pushr
         @apn_key = value
       else
         # assume it's the path to the apn_key and try to read it:
-        @apn_key = read_file(value) if value
+        @apn_key = read_file(value) if !value.blank? && apnsp8_http2?
       end
     end
 
