@@ -16,8 +16,9 @@ module Pushr
     #apnsp8_http2 configuration
     validates :apn_key, :apn_key_id, :bundle_id, :team_id, presence: true, if: :apnsp8_http2?
 
+    #/!\name shall be set a :apns since on daemon launched, apns.rb file is call
     def name
-      self.version || :apns
+      :apns
     end
 
     def certificate=(value)
