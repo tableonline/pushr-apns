@@ -23,6 +23,8 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'multi_json'
   s.add_runtime_dependency 'pushr-core'
+  s.add_runtime_dependency 'net-http2'
+  s.add_runtime_dependency 'jwt'
   s.add_runtime_dependency 'activemodel'
   s.add_development_dependency 'rspec', '~> 3.0'
   s.add_development_dependency 'guard'

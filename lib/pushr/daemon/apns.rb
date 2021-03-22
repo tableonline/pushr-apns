@@ -9,11 +9,12 @@ module Pushr
       end
 
       def start
+        dispatcher = Dispatcher.get_dispatcher(self.configuration.version)
         configuration.connections.times do |i|
-          connection = ApnsSupport::ConnectionApns.new(configuration, i + 1)
+          connection = dispatcher.new(self.configuration, i + 1)
           connection.connect
 
-          handler = MessageHandler.new("pushr:#{configuration.key}", connection, configuration.app, i + 1)
+          handler = MessageHandler.new("pushr:#{self.configuration.key}", connection, self.configuration.app, i + 1)
           handler.start
           @handlers << handler
         end
