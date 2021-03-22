@@ -49,7 +49,7 @@ module Pushr
             setup_client
             send_post_request(data)
             close
-          rescue Errno::ECONNRESET, Errno::ETIMEDOUT => error
+          rescue Errno::ECONNRESET, Errno::ETIMEDOUT, SocketError => error
             close
             retry_count += 1
             if retry_count == 1
